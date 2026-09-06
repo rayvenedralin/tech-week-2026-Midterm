@@ -229,12 +229,12 @@
       </a>
 
       <!-- Unified Glass Capsule Navigation Bar (Active: Contact) -->
-      <div class="glass-capsule hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider">
-        <a href="index.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Home</a>
-        <a href="tech_week_explore.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Explore</a>
-        <a href="tech_week_exhibits.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Exhibits</a>
-        <a href="tech_week_workshops.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Workshops</a>
-        <a href="tech_week_contact.html" class="px-3.5 py-1.5 rounded-full text-white font-bold bg-white/20 border border-white/70 shadow-[0_0_12px_rgba(255,255,255,0.45)] transition-all">Connect</a>
+      <div class="glass-capsule hidden md:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider select-none">
+        <a href="index.html" class="w-[86px] py-1.5 rounded-full flex items-center justify-center text-center text-blue-100 font-bold border border-transparent hover:text-white hover:bg-white/15 whitespace-nowrap transition-all">Home</a>
+        <a href="tech_week_explore.html" class="w-[86px] py-1.5 rounded-full flex items-center justify-center text-center text-blue-100 font-bold border border-transparent hover:text-white hover:bg-white/15 whitespace-nowrap transition-all">Explore</a>
+        <a href="tech_week_exhibits.html" class="w-[86px] py-1.5 rounded-full flex items-center justify-center text-center text-blue-100 font-bold border border-transparent hover:text-white hover:bg-white/15 whitespace-nowrap transition-all">Exhibits</a>
+        <a href="tech_week_workshops.html" class="w-[86px] py-1.5 rounded-full flex items-center justify-center text-center text-blue-100 font-bold border border-transparent hover:text-white hover:bg-white/15 whitespace-nowrap transition-all">Workshops</a>
+        <a href="tech_week_contact.html" class="w-[86px] py-1.5 rounded-full flex items-center justify-center text-center text-white font-bold bg-white/20 border border-white/70 shadow-[0_0_12px_rgba(255,255,255,0.45)] whitespace-nowrap transition-all">Connect</a>
       </div>
     </nav>
 
@@ -250,29 +250,13 @@
         Reach the CCS event team, discover breaking news, explore sponsor ads, or join the social conversation.
       </p>
 
-      <!-- Contact Choices Grid: Royal Blue Gloss Capsules -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3.5 w-full max-w-4xl text-left">
-        <!-- 01: College Desk -->
-        <a href="mailto:info@STUCCS.edu.ph" class="contact-card px-4 py-3 block group cursor-pointer sm:col-span-1 lg:col-span-2" aria-label="St. Timothy University College of Computer Studies">
-          <div class="flex items-center justify-between mb-1">
+      <!-- Contact Choices Grid: 4 Balanced Royal Blue Gloss Capsules (2x2 Grid) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-3xl text-left">
+        <!-- 01: Event Desk -->
+        <div class="contact-card px-5 py-4 block group cursor-pointer" onclick="showToast('Event Desk: Located at CCS Cyber Hub, Main Campus Level 2. Open 08:00–18:00 daily.')" role="button" tabindex="0" aria-label="Visit CCS Cyber Hub Event Desk">
+          <div class="flex items-center justify-between mb-1.5">
             <div class="flex items-center gap-2 text-cyan-200 text-[10px] font-mono font-bold tracking-wider">
-              <svg class="w-3.5 h-3.5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-              </svg>
-              COLLEGE DESK
-            </div>
-            <span class="text-[9px] font-mono text-cyan-100/75">STU CCS</span>
-          </div>
-          <div class="text-white font-display font-bold text-xs sm:text-sm tracking-wide group-hover:text-cyan-100 transition-colors truncate">
-            St. Timothy University &bull; College of Computer Studies
-          </div>
-        </a>
-
-        <!-- 02: Event Desk -->
-        <div class="contact-card px-4 py-3 block group cursor-pointer sm:col-span-1 lg:col-span-2" onclick="showToast('Event Desk: Located at CCS Cyber Hub, Main Campus Level 2. Open 08:00–18:00 daily.')" role="button" tabindex="0" aria-label="Visit CCS Cyber Hub Event Desk">
-          <div class="flex items-center justify-between mb-1">
-            <div class="flex items-center gap-2 text-cyan-200 text-[10px] font-mono font-bold tracking-wider">
-              <svg class="w-3.5 h-3.5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
               </svg>
@@ -280,55 +264,55 @@
             </div>
             <span class="text-[9px] font-mono text-cyan-100/75">Walk-in</span>
           </div>
-          <div class="text-white font-display font-bold text-xs sm:text-sm tracking-wide truncate">
+          <div class="text-white font-display font-bold text-sm tracking-wide truncate">
             Main Campus &bull; CCS Cyber Hub
           </div>
         </div>
 
-        <!-- 03: News -->
-        <a href="tech_week_news.html" class="contact-card px-4 py-3 block group cursor-pointer sm:col-span-2 lg:col-span-2" aria-label="Tech Week News Bulletin and Newsletter Header">
-          <div class="flex items-center justify-between mb-1">
+        <!-- 02: News -->
+        <a href="tech_week_news.html" class="contact-card px-5 py-4 block group cursor-pointer" aria-label="Tech Week News Bulletin and Newsletter Header">
+          <div class="flex items-center justify-between mb-1.5">
             <div class="flex items-center gap-2 text-cyan-200 text-[10px] font-mono font-bold tracking-wider">
-              <svg class="w-3.5 h-3.5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
               </svg>
               NEWS
             </div>
             <span class="text-[9px] font-mono text-cyan-100/75">Daily Feed</span>
           </div>
-          <div class="text-white font-display font-bold text-xs sm:text-sm tracking-wide group-hover:text-cyan-100 transition-colors truncate">
+          <div class="text-white font-display font-bold text-sm tracking-wide group-hover:text-cyan-100 transition-colors truncate">
             Summit Highlights &amp; Bulletins
           </div>
         </a>
 
-        <!-- 04: AD -->
-        <a href="tech_week_ad.html" class="contact-card px-4 py-3 block group cursor-pointer sm:col-span-1 lg:col-span-3" aria-label="STUCCS Official Banner Ad">
-          <div class="flex items-center justify-between mb-1">
+        <!-- 03: AD -->
+        <a href="tech_week_ad.html" class="contact-card px-5 py-4 block group cursor-pointer" aria-label="STUCCS Official Banner Ad">
+          <div class="flex items-center justify-between mb-1.5">
             <div class="flex items-center gap-2 text-cyan-200 text-[10px] font-mono font-bold tracking-wider">
-              <svg class="w-3.5 h-3.5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
               </svg>
               AD
             </div>
             <span class="text-[9px] font-mono text-cyan-100/75">Official Ad</span>
           </div>
-          <div class="text-white font-display font-bold text-xs sm:text-sm tracking-wide group-hover:text-cyan-100 transition-colors truncate">
+          <div class="text-white font-display font-bold text-sm tracking-wide group-hover:text-cyan-100 transition-colors truncate">
             Explore, Exhibits &amp; Workshops
           </div>
         </a>
 
-        <!-- 05: Social Post -->
-        <div class="contact-card px-4 py-3 block group cursor-pointer sm:col-span-1 lg:col-span-3" onclick="showToast('Social Post: Tag #TechWeek2026 on TikTok & Instagram to win official summit merch!')" role="button" tabindex="0" aria-label="Social Post and Community">
-          <div class="flex items-center justify-between mb-1">
+        <!-- 04: Social Post -->
+        <div class="contact-card px-5 py-4 block group cursor-pointer" onclick="showToast('Social Post: Tag #TechWeek2026 on TikTok & Instagram to win official summit merch!')" role="button" tabindex="0" aria-label="Social Post and Community">
+          <div class="flex items-center justify-between mb-1.5">
             <div class="flex items-center gap-2 text-cyan-200 text-[10px] font-mono font-bold tracking-wider">
-              <svg class="w-3.5 h-3.5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
               </svg>
               SOCIAL POST
             </div>
             <span class="text-[9px] font-mono text-cyan-100/75">#TechWeek2026</span>
           </div>
-          <div class="text-white font-display font-bold text-xs sm:text-sm tracking-wide truncate">
+          <div class="text-white font-display font-bold text-sm tracking-wide truncate">
             @ccstechweek &bull; Discord &amp; IG
           </div>
         </div>
