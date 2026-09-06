@@ -6,6 +6,10 @@
   <title>Newsletter & Bulletins | Tech Week 2026</title>
   <meta name="description" content="Official STUCCS Tech Week 2026 Newsletter and Summit Bulletins. St. Timothy University College of Computer Studies.">
   
+  <link rel="icon" type="image/png" href="ccs logo.png">
+  <link rel="shortcut icon" type="image/png" href="ccs logo.png">
+  <link rel="apple-touch-icon" href="ccs logo.png">
+  
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -337,25 +341,17 @@
       <!-- Image 1 Center Frame: Cyber Rounded Container around STUCCS Newsletter Header -->
       <div class="newsletter-showcase-frame p-2.5 sm:p-4 md:p-5 w-full max-w-4xl relative flex items-center justify-center">
         <!-- Direct PDF vector canvas renderer for mathematical vector precision -->
-        <canvas id="newsletterCanvas" class="newsletter-img w-full h-auto object-contain relative z-10" style="display: none;"></canvas>
-        <!-- Immediate High-DPI 2400px raster fallback -->
-        <img id="newsletterImg" 
-             src="STUCCS Newsletter Header.png?v=3" 
-             srcset="STUCCS Newsletter Header.png?v=3 1x, STUCCS Newsletter Header.png?v=3 2x"
-             alt="STUCCS Tech Week 2026 Newsletter Header - St. Timothy University College of Computer Studies" 
-             class="newsletter-img w-full h-auto object-contain block relative z-10"
-             width="2400"
-             height="800">
+        <canvas id="newsletterCanvas" class="newsletter-img w-full h-auto object-contain relative z-10 block" style="min-height: 140px;"></canvas>
       </div>
 
       <!-- Quick Action Badges matching Image 1 (Exactly 2 Buttons) -->
       <div class="flex items-center justify-center gap-3.5 mt-5">
-        <!-- Button 1: Save Header (JPG) -->
-        <a href="STUCCS Newsletter Header.jpg" download="STUCCS Newsletter Header.jpg" class="btn-capsule-action px-5 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-mono font-bold flex items-center gap-2 hover:text-white transition-all cursor-pointer">
+        <!-- Button 1: Download Header (PDF) -->
+        <a href="STUCCS Newsletter Header.pdf" download="STUCCS_Newsletter_Header_2026.pdf" class="btn-capsule-action px-5 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-mono font-bold flex items-center gap-2 hover:text-white transition-all cursor-pointer">
           <svg class="w-4 h-4 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
           </svg>
-          <span>Save Header (JPG)</span>
+          <span>Download Header (PDF)</span>
         </a>
 
         <!-- Button 2: @STUCCS.edu.ph -->
@@ -381,12 +377,11 @@
     /* Direct PDF vector rendering using PDF.js for 100% vector crispness */
     (function initPdfRenderer() {
       const canvas = document.getElementById('newsletterCanvas');
-      const fallback = document.getElementById('newsletterImg');
       if (!window.pdfjsLib || !canvas) return;
 
       pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-      pdfjsLib.getDocument('STUCCS Newsletter Header.pdf?v=3').promise.then(function(pdf) {
+      pdfjsLib.getDocument('STUCCS Newsletter Header.pdf').promise.then(function(pdf) {
         return pdf.getPage(1);
       }).then(function(page) {
         const scale = 4; // 4x scale yields 2400 x 800 ultra-high resolution
@@ -395,11 +390,8 @@
         canvas.height = viewport.height;
         const ctx = canvas.getContext('2d', { alpha: false });
         return page.render({ canvasContext: ctx, viewport: viewport }).promise;
-      }).then(function() {
-        canvas.style.display = 'block';
-        if (fallback) fallback.style.display = 'none';
       }).catch(function(err) {
-        console.info('PDF render note: using high-DPI 2400px raster fallback', err);
+        console.warn('PDF render note:', err);
       });
     })();
 

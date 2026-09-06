@@ -6,6 +6,10 @@
   <title>Summit Banner Ad | Tech Week 2026</title>
   <meta name="description" content="Official STUCCS Tech Week 2026 Banner Ad. St. Timothy University College of Computer Studies.">
   
+  <link rel="icon" type="image/png" href="ccs logo.png">
+  <link rel="shortcut icon" type="image/png" href="ccs logo.png">
+  <link rel="apple-touch-icon" href="ccs logo.png">
+  
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -337,25 +341,17 @@
       <!-- Showcase Frame: Deep Cyber Rounded Container around STUCCS Banner AD -->
       <div class="ad-showcase-frame p-2 sm:p-3.5 w-full max-w-lg md:max-w-xl relative flex items-center justify-center">
         <!-- Direct PDF vector canvas renderer for razor-sharp precision -->
-        <canvas id="bannerCanvas" class="banner-img w-full h-auto max-h-[460px] object-contain relative z-10" style="display: none;"></canvas>
-        <!-- Immediate High-DPI raster fallback -->
-        <img id="bannerImg" 
-             src="STUCCS Banner Ad.png?v=4" 
-             srcset="STUCCS Banner Ad.png?v=4 1x, STUCCS Banner Ad.png?v=4 2x"
-             alt="STUCCS Tech Week 2026 Official Banner Ad - St. Timothy University College of Computer Studies" 
-             class="banner-img w-full h-auto max-h-[460px] object-contain block relative z-10"
-             width="2016"
-             height="1679">
+        <canvas id="bannerCanvas" class="banner-img w-full h-auto max-h-[460px] object-contain relative z-10 block" style="min-height: 200px;"></canvas>
       </div>
 
       <!-- Quick Action Badges (Exactly 2 Buttons matching news header style) -->
       <div class="flex items-center justify-center gap-3.5 mt-4">
-        <!-- Button 1: Save Banner (JPG) -->
-        <a href="STUCCS Banner Ad.jpg" download="STUCCS_Banner_Ad_2026.jpg" class="btn-capsule-action px-5 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-mono font-bold flex items-center gap-2 hover:text-white transition-all cursor-pointer">
+        <!-- Button 1: Download Banner (PDF) -->
+        <a href="STUCCS Banner Ad.pdf" download="STUCCS_Banner_Ad_2026.pdf" class="btn-capsule-action px-5 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-mono font-bold flex items-center gap-2 hover:text-white transition-all cursor-pointer">
           <svg class="w-4 h-4 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
           </svg>
-          <span>Save Banner (JPG)</span>
+          <span>Download Banner (PDF)</span>
         </a>
 
         <!-- Button 2: @STUCCS.edu.ph -->
@@ -381,25 +377,21 @@
     /* Direct PDF vector rendering using PDF.js for 100% vector crispness */
     (function initPdfRenderer() {
       const canvas = document.getElementById('bannerCanvas');
-      const fallback = document.getElementById('bannerImg');
       if (!window.pdfjsLib || !canvas) return;
 
       pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-      pdfjsLib.getDocument('STUCCS Banner Ad.pdf?v=4').promise.then(function(pdf) {
+      pdfjsLib.getDocument('STUCCS Banner Ad.pdf').promise.then(function(pdf) {
         return pdf.getPage(1);
       }).then(function(page) {
-        const scale = 8; // 8x scale for ultra-crisp vector rendering (2016x1679)
+        const scale = 6; // 6x scale for ultra-crisp vector rendering
         const viewport = page.getViewport({ scale: scale });
         canvas.width = viewport.width;
         canvas.height = viewport.height;
         const ctx = canvas.getContext('2d', { alpha: false });
         return page.render({ canvasContext: ctx, viewport: viewport }).promise;
-      }).then(function() {
-        canvas.style.display = 'block';
-        if (fallback) fallback.style.display = 'none';
       }).catch(function(err) {
-        console.info('Banner Ad PDF render note: using high-DPI raster fallback', err);
+        console.warn('Banner Ad PDF render note:', err);
       });
     })();
 
