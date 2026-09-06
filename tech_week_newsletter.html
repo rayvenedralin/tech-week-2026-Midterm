@@ -179,6 +179,8 @@
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
       transition: transform 0.3s ease;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: high-quality;
     }
 
     .newsletter-img:hover {
@@ -245,36 +247,24 @@
       <circle cx="40" cy="70" r="2.5" fill="#38bdf8"/>
     </svg>
 
-    <!-- Navigation Header -->
+    <!-- Navigation Header matching Image 1 -->
     <nav class="relative z-10 w-full px-6 md:px-12 pt-6 flex items-center justify-between">
-      <!-- Logo & Brand Badge -->
-      <a href="index.html" class="flex items-center gap-2.5 group cursor-pointer" aria-label="Return to Tech Week Home">
-        <div class="relative w-8 h-8 flex items-center justify-center">
-          <div class="absolute inset-0 bg-cyan-400/20 rounded-full blur-sm group-hover:bg-cyan-400/40 transition-colors"></div>
-          <img src="ccs logo.png" alt="CCS Logo" class="w-8 h-8 object-contain relative z-10">
-        </div>
-        <div class="text-left">
-          <div class="text-white font-bold text-xs tracking-wider font-mono">ST. TIMOTHY UNIVERSITY</div>
-          <div class="text-cyan-400 font-medium text-[10px] tracking-widest font-mono">COLLEGE OF COMPUTER STUDIES</div>
-        </div>
+      <!-- Back Button matching Image 4 (Only 'BACK' with arrow) -->
+      <a href="tech_week_contact.html" class="btn-capsule-action px-5 py-2 text-xs font-mono font-bold flex items-center gap-2 cursor-pointer text-white" aria-label="Go Back">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        <span class="tracking-wider">BACK</span>
       </a>
 
-      <!-- Center Navigation Pill -->
-      <div class="glass-capsule hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider">
+      <!-- Center Navigation Pill (Contact -> Connect matching Images 2 & 3) -->
+      <div class="glass-capsule flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider">
         <a href="index.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Home</a>
         <a href="tech_week_explore.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Explore</a>
         <a href="tech_week_exhibits.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Exhibits</a>
         <a href="tech_week_workshops.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Workshops</a>
-        <a href="tech_week_contact.html" class="px-3.5 py-1.5 rounded-full text-white font-bold bg-white/20 border border-white/70 shadow-[0_0_12px_rgba(255,255,255,0.45)] transition-all">Contact</a>
+        <a href="tech_week_contact.html" class="px-3.5 py-1.5 rounded-full text-white font-bold bg-white/20 border border-white/70 shadow-[0_0_12px_rgba(255,255,255,0.45)] transition-all">Connect</a>
       </div>
-
-      <!-- Back to Contact Button -->
-      <a href="tech_week_contact.html" class="btn-capsule-action px-4 py-2 text-xs font-mono font-bold flex items-center gap-2 cursor-pointer" aria-label="Back to Contact Desk">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-        </svg>
-        <span>Back to Contact</span>
-      </a>
     </nav>
 
     <!-- Main Showcase Center: Exact Match to User Image 2 -->
@@ -286,20 +276,31 @@
         <span>NEWSLETTER BULLETIN &bull; OCTOBER 12-16, 2026</span>
       </div>
 
-      <!-- Image 2 Frame: Sleek Rounded Container around STUCCS Newsletter Header.jpg -->
+      <!-- Image 2 Frame: Sleek Rounded Container around STUCCS Newsletter Header -->
       <div class="newsletter-showcase-frame p-3 sm:p-4 md:p-6 w-full max-w-4xl relative">
-        <img src="STUCCS Newsletter Header.jpg" 
-             alt="STUCCS Tech Week 2026 Newsletter Header - St. Timothy University College of Computer Studies" 
-             class="newsletter-img w-full h-auto object-contain block relative z-10">
+        <picture>
+          <source srcset="STUCCS Newsletter Header.png" type="image/png">
+          <img src="STUCCS Newsletter Header.jpg" 
+               alt="STUCCS Tech Week 2026 Newsletter Header - St. Timothy University College of Computer Studies" 
+               class="newsletter-img w-full h-auto object-contain block relative z-10"
+               width="2400"
+               height="800">
+        </picture>
       </div>
 
       <!-- Quick Action Badges below image -->
       <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
-        <a href="STUCCS Newsletter Header.jpg" download="STUCCS_Newsletter_Header_2026.jpg" class="glass-capsule px-4 py-2 text-[11px] font-mono text-cyan-100 font-bold flex items-center gap-2 hover:text-white transition-all cursor-pointer">
+        <a href="STUCCS Newsletter Header.pdf" download="STUCCS_Newsletter_Header_2026.pdf" class="glass-capsule px-4 py-2 text-[11px] font-mono text-cyan-100 font-bold flex items-center gap-2 hover:text-white transition-all cursor-pointer">
+          <svg class="w-3.5 h-3.5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+          </svg>
+          Download PDF (Vector)
+        </a>
+        <a href="STUCCS Newsletter Header.png" download="STUCCS_Newsletter_Header_2026.png" class="glass-capsule px-4 py-2 text-[11px] font-mono text-cyan-100 font-bold flex items-center gap-2 hover:text-white transition-all cursor-pointer">
           <svg class="w-3.5 h-3.5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
           </svg>
-          Save Header (JPG)
+          Save HD Image (PNG)
         </a>
         <a href="mailto:ccs.techweek@STUCCS.edu.ph" class="glass-capsule px-4 py-2 text-[11px] font-mono text-cyan-100 font-bold flex items-center gap-2 hover:text-white transition-all cursor-pointer">
           <svg class="w-3.5 h-3.5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -315,7 +316,7 @@
     <footer class="relative z-10 w-full px-6 md:px-12 pb-6 pt-4 border-t border-cyan-500/10 bg-slate-950/40 text-center text-[10px] font-mono text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-2">
       <span>St. Timothy University &bull; College of Computer Studies &bull; Tech Week 2026</span>
       <div class="flex items-center gap-4 text-cyan-300">
-        <a href="tech_week_contact.html" class="hover:text-white transition-colors">&larr; Back to Contact Desk</a>
+        <a href="tech_week_contact.html" class="hover:text-white transition-colors">&larr; Back to Connect Desk</a>
         <span>&bull;</span>
         <a href="index.html" class="hover:text-white transition-colors">Home Page &rarr;</a>
       </div>
