@@ -493,44 +493,47 @@
 
     </section>
 
-    <footer id="workshops" class="relative z-10 w-full px-6 md:px-12 pb-6 md:pb-7 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-cyan-500/10 pt-4 bg-slate-950/40 backdrop-blur-md">
+    <footer id="workshops" class="relative z-10 w-full px-6 md:px-12 pb-5 pt-3.5 flex flex-col gap-3 border-t border-cyan-500/10 bg-slate-950/40 backdrop-blur-md">
       
-      <!-- Metrics Grid -->
-      <div class="grid grid-cols-4 gap-4 sm:gap-8 w-full md:w-auto text-left">
-        <div>
-          <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">03</div>
-          <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Days Of Tech</div>
+      <!-- Top Row: Metrics Grid & Countdown Widget -->
+      <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4">
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-4 gap-4 sm:gap-8 w-full md:w-auto text-left">
+          <div>
+            <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">03</div>
+            <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Days Of Tech</div>
+          </div>
+          <div>
+            <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">16+</div>
+            <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Workshops</div>
+          </div>
+          <div>
+            <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">₱75K</div>
+            <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Prize Pool</div>
+          </div>
+          <div>
+            <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">800+</div>
+            <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Innovators</div>
+          </div>
         </div>
-        <div>
-          <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">16+</div>
-          <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Workshops</div>
-        </div>
-        <div>
-          <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">₱75K</div>
-          <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Prize Pool</div>
-        </div>
-        <div>
-          <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">800+</div>
-          <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Innovators</div>
+
+        <!-- Live Event Countdown Widget -->
+        <div class="glass-capsule flex items-center gap-3 rounded-full px-4 py-2">
+          <span class="text-[11px] font-mono text-slate-300 uppercase tracking-wider flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00f0ff]"></span>
+            Launches In:
+          </span>
+          <div class="flex items-center gap-1 font-mono text-xs sm:text-sm font-bold text-cyan-200 bg-black/40 border border-cyan-400/30 rounded-full px-3 py-1 shadow-inner" id="countdownClock">
+            <span id="cd-days" class="text-cyan-300">38</span><span class="text-cyan-500/60">:</span>
+            <span id="cd-hours" class="text-cyan-300">14</span><span class="text-cyan-500/60">:</span>
+            <span id="cd-mins" class="text-cyan-300">22</span><span class="text-cyan-500/60">:</span>
+            <span id="cd-secs" class="text-cyan-300">08</span>
+          </div>
         </div>
       </div>
 
-      <!-- Live Event Countdown Widget (Single Unified Glass Capsule - Image 5 Fix) -->
-      <div class="glass-capsule flex items-center gap-3 rounded-full px-4 py-2">
-        <span class="text-[11px] font-mono text-slate-300 uppercase tracking-wider flex items-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00f0ff]"></span>
-          Launches In:
-        </span>
-        <div class="flex items-center gap-1 font-mono text-xs sm:text-sm font-bold text-cyan-200 bg-black/40 border border-cyan-400/30 rounded-full px-3 py-1 shadow-inner" id="countdownClock">
-          <span id="cd-days" class="text-cyan-300">38</span><span class="text-cyan-500/60">:</span>
-          <span id="cd-hours" class="text-cyan-300">14</span><span class="text-cyan-500/60">:</span>
-          <span id="cd-mins" class="text-cyan-300">22</span><span class="text-cyan-500/60">:</span>
-          <span id="cd-secs" class="text-cyan-300">08</span>
-        </div>
-      </div>
-
-      <!-- Institutional Footer Bar with Official University Email -->
-      <div class="w-full text-center text-[11px] font-mono text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-cyan-500/10 pt-2.5 mt-1">
+      <!-- Bottom Row: Institutional Footer Bar with Official University Email -->
+      <div class="w-full text-[11px] font-mono text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-cyan-500/10 pt-2">
         <a href="mailto:info@STUCCS.edu.ph" class="text-cyan-300 hover:text-white transition-colors font-mono">@STUCCS.edu.ph</a>
         <span class="text-cyan-400/80 font-mono">#TechWeek2026</span>
       </div>
