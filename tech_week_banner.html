@@ -311,12 +311,12 @@
         <canvas id="bannerCanvas" class="banner-img w-full h-auto max-h-[460px] object-contain relative z-10" style="display: none;"></canvas>
         <!-- Immediate High-DPI raster fallback -->
         <img id="bannerImg" 
-             src="STUCCS Banner Ad.png?v=3" 
-             srcset="STUCCS Banner Ad.png?v=3 1x, STUCCS Banner Ad.png?v=3 2x"
+             src="STUCCS Banner Ad.png?v=4" 
+             srcset="STUCCS Banner Ad.png?v=4 1x, STUCCS Banner Ad.png?v=4 2x"
              alt="STUCCS Tech Week 2026 Official Banner Ad - St. Timothy University College of Computer Studies" 
              class="banner-img w-full h-auto max-h-[460px] object-contain block relative z-10"
-             width="1260"
-             height="1049">
+             width="2016"
+             height="1679">
       </div>
 
       <!-- Quick Action Badges (Exactly 2 Buttons matching news header style) -->
@@ -351,10 +351,10 @@
 
       pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-      pdfjsLib.getDocument('STUCCS Banner Ad.pdf?v=3').promise.then(function(pdf) {
+      pdfjsLib.getDocument('STUCCS Banner Ad.pdf?v=4').promise.then(function(pdf) {
         return pdf.getPage(1);
       }).then(function(page) {
-        const scale = 5; // 5x scale for ultra-crisp vector rendering
+        const scale = 8; // 8x scale for ultra-crisp vector rendering (2016x1679)
         const viewport = page.getViewport({ scale: scale });
         canvas.width = viewport.width;
         canvas.height = viewport.height;
