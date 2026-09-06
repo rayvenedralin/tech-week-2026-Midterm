@@ -149,12 +149,12 @@
       z-index: 2;
     }
 
-    /* Image 5 Gold Standard: Vibrant Royal Blue Capsule Button & Bullet Point */
+    /* Image 5 Gold Standard: Vibrant Royal Blue Rounded Box */
     .track-card {
       position: relative;
       background: linear-gradient(180deg, #1e70eb 0%, #0d52c7 100%) !important;
       border: 1.5px solid rgba(160, 235, 255, 0.9) !important;
-      border-radius: 9999px;
+      border-radius: 20px !important;
       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 0 20px rgba(0, 160, 255, 0.45);
       color: #ffffff !important;
       overflow: hidden;
@@ -162,7 +162,6 @@
       max-height: 48px;
       text-align: left;
       transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                  border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1),
                   border-color 0.25s ease,
                   box-shadow 0.25s ease,
                   transform 0.25s ease;
@@ -190,7 +189,7 @@
     .track-card:hover,
     .track-card.expanded {
       max-height: 140px;
-      border-radius: 20px;
+      border-radius: 20px !important;
       border-color: #ffffff !important;
       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 0 32px rgba(0, 190, 255, 0.7);
       transform: translateY(-2px);
