@@ -153,6 +153,64 @@
       z-index: 2;
     }
 
+    /* Underline Navigation Bar System matching Image 1 */
+    .nav-link-btn {
+      position: relative;
+      width: 86px;
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: rgba(219, 234, 254, 0.85);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.15s ease;
+      white-space: nowrap;
+      z-index: 3;
+    }
+
+    .nav-link-btn:hover {
+      color: #ffffff;
+    }
+
+    .nav-link-btn.active {
+      color: #ffffff;
+    }
+
+    .nav-link-btn .nav-text {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .nav-link-btn.active .nav-text::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #ffffff;
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.75);
+      border-radius: 1px;
+    }
+
+    .nav-link-btn:not(.active):hover .nav-text::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 1px;
+    }
+
     /* Workshop Row: Image 5 Gold Standard Rounded Box */
     .workshop-row {
       position: relative;
@@ -204,12 +262,12 @@
       </a>
 
       <!-- Unified Glass Capsule Navigation Bar (Active: Workshops) -->
-      <div class="glass-capsule hidden md:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider select-none">
-        <a href="index.html" class="w-[86px] py-1.5 rounded-full flex items-center justify-center text-center text-blue-100 font-bold border border-transparent hover:text-white hover:bg-white/15 whitespace-nowrap transition-all">Home</a>
-        <a href="tech_week_explore.html" class="w-[86px] py-1.5 rounded-full flex items-center justify-center text-center text-blue-100 font-bold border border-transparent hover:text-white hover:bg-white/15 whitespace-nowrap transition-all">Explore</a>
-        <a href="tech_week_exhibits.html" class="w-[86px] py-1.5 rounded-full flex items-center justify-center text-center text-blue-100 font-bold border border-transparent hover:text-white hover:bg-white/15 whitespace-nowrap transition-all">Exhibits</a>
-        <a href="tech_week_workshops.html" class="w-[86px] py-1.5 rounded-full flex items-center justify-center text-center text-white font-bold bg-white/20 border border-white/70 shadow-[0_0_12px_rgba(255,255,255,0.45)] whitespace-nowrap transition-all">Workshops</a>
-        <a href="tech_week_contact.html" class="w-[86px] py-1.5 rounded-full flex items-center justify-center text-center text-blue-100 font-bold border border-transparent hover:text-white hover:bg-white/15 whitespace-nowrap transition-all">Connect</a>
+      <div class="glass-capsule hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider select-none">
+        <a href="index.html" class="nav-link-btn"><span class="nav-text">Home</span></a>
+        <a href="tech_week_explore.html" class="nav-link-btn"><span class="nav-text">Explore</span></a>
+        <a href="tech_week_exhibits.html" class="nav-link-btn"><span class="nav-text">Exhibits</span></a>
+        <a href="tech_week_workshops.html" class="nav-link-btn active"><span class="nav-text">Workshops</span></a>
+        <a href="tech_week_contact.html" class="nav-link-btn"><span class="nav-text">Connect</span></a>
       </div>
     </nav>
 
