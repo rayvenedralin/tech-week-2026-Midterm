@@ -325,20 +325,79 @@
       }
     }
 
-    /* Clean Modern Registration Modal Inputs */
+    /* Main Page Aesthetic: Ultra-Cohesive Cyber Registration Modal */
+    .cyber-modal-card {
+      position: relative;
+      background: radial-gradient(130% 100% at 50% 0%, rgba(14, 34, 78, 0.96) 0%, rgba(5, 14, 38, 0.98) 100%) !important;
+      border: 1.5px solid rgba(56, 189, 248, 0.45) !important;
+      border-radius: 24px !important;
+      box-shadow: 0 0 50px rgba(0, 240, 255, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      overflow: hidden;
+    }
+
+    .cyber-modal-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     #registerModal input,
     #registerModal select {
-      background: rgba(4, 10, 25, 0.85) !important;
-      border: 1px solid rgba(56, 189, 248, 0.3) !important;
-      border-radius: 10px !important;
-      color: #f8fafc !important;
-      box-shadow: none !important;
+      background: rgba(3, 10, 28, 0.8) !important;
+      border: 1.5px solid rgba(56, 189, 248, 0.3) !important;
+      border-radius: 12px !important;
+      color: #ffffff !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 13px !important;
+      padding: 10px 14px !important;
+      transition: all 0.25s ease !important;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4) !important;
     }
+
     #registerModal input:focus,
     #registerModal select:focus {
       border-color: #00f0ff !important;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3) !important;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.35), inset 0 0 8px rgba(0, 240, 255, 0.1) !important;
       outline: none !important;
+    }
+
+    .modal-submit-btn {
+      position: relative;
+      background: linear-gradient(180deg, #1e70eb 0%, #0d52c7 100%) !important;
+      border: 1.5px solid rgba(160, 235, 255, 0.9) !important;
+      border-radius: 9999px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 0 24px rgba(0, 160, 255, 0.45);
+      color: #ffffff !important;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .modal-submit-btn::after {
+      content: '';
+      position: absolute;
+      top: -28%;
+      right: -8%;
+      width: 55%;
+      height: 95%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 72%);
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .modal-submit-btn:hover {
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 0 36px rgba(0, 190, 255, 0.7);
+      border-color: #ffffff !important;
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -462,36 +521,70 @@
     </footer>
 
     <div id="registerModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-      <div class="bg-slate-900 border border-cyan-500/30 rounded-2xl p-6 sm:p-8 w-full max-w-md shadow-2xl relative">
-        <button id="closeModalBtn" aria-label="Close registration form" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg cursor-pointer">✕</button>
-        <div class="flex items-center justify-center gap-3 mb-3">
-          <img src="ccs logo.png" alt="College of Computer Studies logo" class="w-11 h-11 object-contain">
-          <div class="text-cyan-400 text-xs font-mono">ST. TIMOTHY CCS PORTAL</div>
-        </div>
-        <h3 class="text-2xl font-bold font-display text-white mb-2">Register for Tech Week 2026</h3>
-        <p class="text-xs text-slate-400 mb-6">Secure your event pass, workshop slots, and tournament entry tickets.</p>
+      <div class="cyber-modal-card p-6 sm:p-8 w-full max-w-md shadow-2xl relative text-left">
+        <!-- Ambient corner glow -->
+        <div class="absolute -top-24 -right-24 w-52 h-52 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
-        <form id="regForm" class="space-y-4" onsubmit="event.preventDefault(); window.submitRegistration();">
+        <!-- Glass circular close button -->
+        <button id="closeModalBtn" aria-label="Close registration form" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-slate-300 hover:text-white transition-all cursor-pointer z-10">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <!-- Brand Header Badge -->
+        <div class="relative z-10 flex items-center justify-center gap-2.5 mb-4">
+          <img src="ccs logo.png" alt="College of Computer Studies logo" class="w-8 h-8 object-contain">
+          <div class="glass-capsule px-3.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider text-cyan-200 font-semibold flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_6px_#00f0ff]"></span>
+            ST. TIMOTHY CCS PORTAL
+          </div>
+        </div>
+
+        <!-- Headline with Main Page Gradients -->
+        <div class="relative z-10 text-center mb-5">
+          <h3 class="text-xl sm:text-2xl font-black font-display tracking-tight text-white mb-1.5">
+            <span class="tech-gradient-text">REGISTER FOR</span>
+            <span class="sub-gradient-text ml-1.5">TECH WEEK</span>
+          </h3>
+          <p class="text-xs text-slate-300/85 font-sans leading-relaxed">
+            Secure your event pass, workshop slots, and tournament entry tickets.
+          </p>
+        </div>
+
+        <form id="regForm" class="relative z-10 space-y-4" onsubmit="event.preventDefault(); window.submitRegistration();">
           <div>
-            <label for="fullName" class="block text-xs font-mono text-slate-300 mb-1">Full Name</label>
-            <input id="fullName" name="fullName" required type="text" autocomplete="name" placeholder="e.g. Alex Rivera" class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none transition">
+            <label for="fullName" class="text-[11px] font-mono uppercase tracking-wider text-cyan-300 font-bold flex items-center gap-1.5 mb-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_#00f0ff]"></span>
+              Full Name
+            </label>
+            <input id="fullName" name="fullName" required type="text" autocomplete="name" placeholder="e.g. Alex Rivera" class="w-full">
           </div>
           <div>
-            <label for="institutionalEmail" class="block text-xs font-mono text-slate-300 mb-1">Institutional Email</label>
-            <input id="institutionalEmail" name="institutionalEmail" required type="email" autocomplete="email" placeholder="alex.rivera@sttimothy.edu" class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none transition">
+            <label for="institutionalEmail" class="text-[11px] font-mono uppercase tracking-wider text-cyan-300 font-bold flex items-center gap-1.5 mb-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_#00f0ff]"></span>
+              Institutional Email
+            </label>
+            <input id="institutionalEmail" name="institutionalEmail" required type="email" autocomplete="email" placeholder="alex.rivera@sttimothy.edu" class="w-full">
           </div>
           <div>
-            <label for="trackInterest" class="block text-xs font-mono text-slate-300 mb-1">Primary Track Interest</label>
-            <select id="trackInterest" name="trackInterest" required class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none transition">
-              <option>AI & Machine Learning Symposium</option>
+            <label for="trackInterest" class="text-[11px] font-mono uppercase tracking-wider text-cyan-300 font-bold flex items-center gap-1.5 mb-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_#00f0ff]"></span>
+              Primary Track Interest
+            </label>
+            <select id="trackInterest" name="trackInterest" required class="w-full">
+              <option>AI &amp; Machine Learning Symposium</option>
               <option>Cybersecurity Capture The Flag (CTF)</option>
               <option>24-Hour Code Sprint Hackathon</option>
-              <option>Game Development & Design Showcase</option>
+              <option>Game Development &amp; Design Showcase</option>
               <option>General Academic Tech Exhibits</option>
             </select>
           </div>
-          <button type="submit" class="btn-neon-primary w-full py-3 rounded-xl font-bold text-slate-950 text-sm mt-2 cursor-pointer">
-            Confirm & Claim Digital Badge
+          <button type="submit" class="modal-submit-btn w-full py-3.5 px-6 rounded-full font-display font-bold text-white text-sm tracking-wide flex items-center justify-center gap-2 mt-3 cursor-pointer">
+            <span>Confirm &amp; Claim Digital Badge</span>
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
           </button>
         </form>
       </div>
