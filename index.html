@@ -325,16 +325,31 @@
       }
     }
 
-    /* Main Page Aesthetic: Ultra-Cohesive Cyber Registration Modal */
+    /* Modal: Image 2 Signature Royal Blue Gloss Style */
     .cyber-modal-card {
       position: relative;
-      background: radial-gradient(130% 100% at 50% 0%, rgba(14, 34, 78, 0.96) 0%, rgba(5, 14, 38, 0.98) 100%) !important;
-      border: 1.5px solid rgba(56, 189, 248, 0.45) !important;
+      background: linear-gradient(180deg, #1e70eb 0%, #0d52c7 100%) !important;
+      border: 2px solid rgba(160, 235, 255, 0.95) !important;
       border-radius: 24px !important;
-      box-shadow: 0 0 50px rgba(0, 240, 255, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+      box-shadow: inset 0 1.5px 2px rgba(255, 255, 255, 0.7),
+                  0 25px 60px -10px rgba(2, 20, 60, 0.9), 
+                  0 0 45px rgba(0, 160, 255, 0.5) !important;
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       overflow: hidden;
+    }
+
+    .cyber-modal-card::after {
+      content: '';
+      position: absolute;
+      top: -25%;
+      right: -10%;
+      width: 60%;
+      height: 85%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.12) 50%, transparent 72%);
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 2;
     }
 
     .cyber-modal-card::before {
@@ -342,42 +357,55 @@
       position: absolute;
       inset: 0;
       background-image: 
-        linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
       background-size: 24px 24px;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
     }
 
     #registerModal input,
     #registerModal select {
-      background: rgba(3, 10, 28, 0.8) !important;
-      border: 1.5px solid rgba(56, 189, 248, 0.3) !important;
-      border-radius: 12px !important;
+      background: rgba(3, 14, 46, 0.75) !important;
+      border: 1.5px solid rgba(160, 235, 255, 0.5) !important;
+      border-radius: 14px !important;
       color: #ffffff !important;
-      font-family: 'JetBrains Mono', monospace !important;
+      font-family: 'Space Grotesk', 'JetBrains Mono', monospace !important;
       font-size: 13px !important;
-      padding: 10px 14px !important;
+      padding: 11px 15px !important;
       transition: all 0.25s ease !important;
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+      box-shadow: inset 0 2px 4px rgba(0, 5, 20, 0.4) !important;
     }
 
     #registerModal input:focus,
     #registerModal select:focus {
-      border-color: #00f0ff !important;
-      box-shadow: 0 0 16px rgba(0, 240, 255, 0.35), inset 0 0 8px rgba(0, 240, 255, 0.1) !important;
+      background: rgba(2, 10, 36, 0.95) !important;
+      border-color: #ffffff !important;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.4) !important;
       outline: none !important;
+    }
+
+    #registerModal input::placeholder {
+      color: rgba(180, 220, 255, 0.55) !important;
+    }
+
+    #registerModal select option {
+      background: #082156 !important;
+      color: #ffffff !important;
     }
 
     .modal-submit-btn {
       position: relative;
-      background: linear-gradient(180deg, #1e70eb 0%, #0d52c7 100%) !important;
-      border: 1.5px solid rgba(160, 235, 255, 0.9) !important;
-      border-radius: 9999px;
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 0 24px rgba(0, 160, 255, 0.45);
-      color: #ffffff !important;
+      background: linear-gradient(180deg, #ffffff 0%, #e0f2fe 100%) !important;
+      border: 1.5px solid #ffffff !important;
+      border-radius: 9999px !important;
+      box-shadow: 0 10px 25px -4px rgba(2, 12, 40, 0.5), 0 0 25px rgba(255, 255, 255, 0.4), inset 0 1.5px 2px #ffffff !important;
+      color: #0b4ec7 !important;
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.02em !important;
       overflow: hidden;
-      transition: all 0.25s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
     }
 
@@ -388,16 +416,17 @@
       right: -8%;
       width: 55%;
       height: 95%;
-      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 72%);
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 50%, transparent 72%);
       transform: rotate(-15deg);
       pointer-events: none;
       z-index: 2;
     }
 
     .modal-submit-btn:hover {
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 0 36px rgba(0, 190, 255, 0.7);
-      border-color: #ffffff !important;
+      background: #ffffff !important;
+      box-shadow: 0 12px 30px -4px rgba(0, 10, 40, 0.6), 0 0 35px rgba(0, 240, 255, 0.9), inset 0 1.5px 2px #ffffff !important;
       transform: translateY(-2px);
+      color: #083b99 !important;
     }
   </style>
 </head>
@@ -523,53 +552,54 @@
     <div id="registerModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
       <div class="cyber-modal-card p-6 sm:p-8 w-full max-w-md shadow-2xl relative text-left">
         <!-- Ambient corner glow -->
-        <div class="absolute -top-24 -right-24 w-52 h-52 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -top-24 -right-24 w-52 h-52 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Glass circular close button -->
-        <button id="closeModalBtn" aria-label="Close registration form" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-slate-300 hover:text-white transition-all cursor-pointer z-10">
+        <button id="closeModalBtn" aria-label="Close registration form" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/20 hover:bg-white/20 border border-white/40 flex items-center justify-center text-white transition-all cursor-pointer z-20">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
 
-        <!-- Brand Header Badge -->
-        <div class="relative z-10 flex items-center justify-center gap-2.5 mb-4">
-          <img src="ccs logo.png" alt="College of Computer Studies logo" class="w-8 h-8 object-contain">
-          <div class="glass-capsule px-3.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider text-cyan-200 font-semibold flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_6px_#00f0ff]"></span>
+        <!-- Brand Header Badge: Image 2 Capsule Style -->
+        <div class="relative z-10 flex items-center justify-center gap-2 mb-4">
+          <div class="w-7 h-7 rounded-full bg-white/20 border border-white/60 flex items-center justify-center p-0.5 shadow-sm">
+            <img src="ccs logo.png" alt="CCS Logo" class="w-5 h-5 object-contain">
+          </div>
+          <div class="px-3.5 py-1 rounded-full bg-black/25 border border-white/40 text-[10px] font-mono uppercase tracking-wider text-cyan-100 font-bold flex items-center gap-1.5 shadow-inner">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-300 animate-pulse shadow-[0_0_6px_#00f0ff]"></span>
             ST. TIMOTHY CCS PORTAL
           </div>
         </div>
 
-        <!-- Headline with Main Page Gradients -->
+        <!-- Headline with Bold White Typography matching Image 2 -->
         <div class="relative z-10 text-center mb-5">
-          <h3 class="text-xl sm:text-2xl font-black font-display tracking-tight text-white mb-1.5">
-            <span class="tech-gradient-text">REGISTER FOR</span>
-            <span class="sub-gradient-text ml-1.5">TECH WEEK</span>
+          <h3 class="text-2xl sm:text-3xl font-black font-display tracking-tight text-white mb-1.5 drop-shadow-md">
+            REGISTER FOR TECH WEEK
           </h3>
-          <p class="text-xs text-slate-300/85 font-sans leading-relaxed">
+          <p class="text-xs text-blue-100/90 font-sans leading-relaxed">
             Secure your event pass, workshop slots, and tournament entry tickets.
           </p>
         </div>
 
         <form id="regForm" class="relative z-10 space-y-4" onsubmit="event.preventDefault(); window.submitRegistration();">
           <div>
-            <label for="fullName" class="text-[11px] font-mono uppercase tracking-wider text-cyan-300 font-bold flex items-center gap-1.5 mb-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_#00f0ff]"></span>
+            <label for="fullName" class="text-[11px] font-mono uppercase tracking-wider text-white font-bold flex items-center gap-2 mb-1.5">
+              <span class="w-5 h-5 rounded-full bg-white/20 border border-white/60 flex items-center justify-center font-mono text-[10px] font-bold text-white shadow-sm">01</span>
               Full Name
             </label>
             <input id="fullName" name="fullName" required type="text" autocomplete="name" placeholder="e.g. Alex Rivera" class="w-full">
           </div>
           <div>
-            <label for="institutionalEmail" class="text-[11px] font-mono uppercase tracking-wider text-cyan-300 font-bold flex items-center gap-1.5 mb-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_#00f0ff]"></span>
+            <label for="institutionalEmail" class="text-[11px] font-mono uppercase tracking-wider text-white font-bold flex items-center gap-2 mb-1.5">
+              <span class="w-5 h-5 rounded-full bg-white/20 border border-white/60 flex items-center justify-center font-mono text-[10px] font-bold text-white shadow-sm">02</span>
               Institutional Email
             </label>
             <input id="institutionalEmail" name="institutionalEmail" required type="email" autocomplete="email" placeholder="alex.rivera@STUCCS.edu.ph" class="w-full">
           </div>
           <div>
-            <label for="trackInterest" class="text-[11px] font-mono uppercase tracking-wider text-cyan-300 font-bold flex items-center gap-1.5 mb-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_#00f0ff]"></span>
+            <label for="trackInterest" class="text-[11px] font-mono uppercase tracking-wider text-white font-bold flex items-center gap-2 mb-1.5">
+              <span class="w-5 h-5 rounded-full bg-white/20 border border-white/60 flex items-center justify-center font-mono text-[10px] font-bold text-white shadow-sm">03</span>
               Primary Track Interest
             </label>
             <select id="trackInterest" name="trackInterest" required class="w-full">
@@ -580,7 +610,7 @@
               <option>General Academic Tech Exhibits</option>
             </select>
           </div>
-          <button type="submit" class="modal-submit-btn w-full py-3.5 px-6 rounded-full font-display font-bold text-white text-sm tracking-wide flex items-center justify-center gap-2 mt-3 cursor-pointer">
+          <button type="submit" class="modal-submit-btn w-full py-3.5 px-6 rounded-full font-display font-bold text-sm tracking-wide flex items-center justify-center gap-2 mt-4 cursor-pointer">
             <span>Confirm &amp; Claim Digital Badge</span>
             <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
