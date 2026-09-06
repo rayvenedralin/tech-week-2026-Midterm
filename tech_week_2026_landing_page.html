@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Week 2026 — College of Computer Studies | St. Timothy University</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            cyber: {
+              black: '#040711',
+              dark: '#080E1E',
+              card: 'rgba(12, 22, 45, 0.65)',
+              border: 'rgba(56, 189, 248, 0.18)',
+              cyan: '#00F0FF',
+              blue: '#2563EB',
+              neon: '#38BDF8',
+              violet: '#6366F1'
+            }
+          },
+          boxShadow: {
+            'glow-cyan': '0 0 25px -4px rgba(0, 240, 255, 0.45)',
+            'glow-cyan-lg': '0 0 45px -5px rgba(0, 240, 255, 0.6)',
+            'glow-subtle': '0 8px 32px 0 rgba(0, 240, 255, 0.1)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: #061436;
+      color: #E2E8F0;
+      overflow-x: hidden;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .pixel-title { font-family: 'Press Start 2P', monospace !important; }
+    .pixel-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.35em;
+      white-space: nowrap;
+      font-size: clamp(1.15rem, 4.3vw, 4.1rem) !important;
+      line-height: 1.15 !important;
+      letter-spacing: 0 !important;
+    }
+
+    .banner-stage {
+      --pointer-x: 50%;
+      --pointer-y: 50%;
+      transition: none;
+    }
+
+    .banner-stage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(0, 240, 255, 0.13), transparent 24%);
+      mix-blend-mode: screen;
+      z-index: 1;
+    }
+
+    /* Fixed Aspect Ratio Frame Container (1600x900 preview container) */
+    .banner-stage {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      max-width: 1600px;
+      max-height: 900px;
+      position: relative;
+      background: radial-gradient(120% 100% at 50% 0%, #123b70 0%, #091d4a 55%, #050d26 100%);
+      box-shadow: 0 25px 80px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(56, 189, 248, 0.15);
+    }
+
+    /* Subtle Cyber Grid */
+    .cyber-grid {
+      background-size: 48px 48px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+      mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
+    }
+
+    /* Circuit Accent Lines */
+    .circuit-accent {
+      position: absolute;
+      pointer-events: none;
+      background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.6), transparent);
+      height: 1px;
+    }
+
+    /* Modern Glow Button Animation */
+    /* Navigation Bar: Exact Image 2 Royal Blue Capsule with Gloss Sheen */
+    .glass-capsule {
+      position: relative;
+      background: linear-gradient(180deg, #1e70eb 0%, #0d52c7 100%) !important;
+      border: 1.5px solid rgba(160, 235, 255, 0.9) !important;
+      border-radius: 9999px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.65), 0 0 22px rgba(0, 160, 255, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+
+    .glass-capsule::after {
+      content: '';
+      position: absolute;
+      top: -28%;
+      right: -8%;
+      width: 55%;
+      height: 95%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 72%);
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Primary CTA Button matching Image 1 */
+    /* Primary CTA Button matching Image 5 */
+    .btn-neon-primary {
+      position: relative;
+      background: linear-gradient(180deg, #1e70eb 0%, #0d52c7 100%) !important;
+      border: 1.5px solid rgba(160, 235, 255, 0.9) !important;
+      border-radius: 9999px;
+      color: #ffffff !important;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 0 22px rgba(0, 160, 255, 0.45);
+    }
+
+    .btn-neon-primary::after {
+      content: '';
+      position: absolute;
+      top: -28%;
+      right: -8%;
+      width: 55%;
+      height: 95%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 72%);
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .btn-neon-primary::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.35) 50%,
+        transparent 80%
+      );
+      transform: rotate(30deg) translateY(-100%);
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-neon-primary:hover::before {
+      transform: rotate(30deg) translateY(100%);
+    }
+    .btn-neon-primary:hover {
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.7), 0 0 10px rgba(0, 240, 255, 0.9);
+      transform: translateY(-2px);
+    }
+    .btn-neon-primary:active {
+      transform: scale(0.98);
+    }
+
+    /* Secondary Glass Button */
+    .btn-glass {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      transition: all 0.25s ease;
+    }
+    .btn-glass:hover {
+      background: rgba(30, 41, 59, 0.85);
+      border-color: rgba(0, 240, 255, 0.6);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Text Gradient */
+    .tech-gradient-text {
+      background: linear-gradient(180deg, #FFFFFF 20%, #A5F3FC 75%, #38BDF8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub-gradient-text {
+      background: linear-gradient(90deg, #00F0FF, #38BDF8, #818CF8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Custom Pulsing Badge dot */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+    .live-dot {
+      animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    /* Toast Notification */
+    #toast {
+      transform: translateY(100px);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+      opacity: 0;
+    }
+    #toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .click-ripple {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgba(0, 240, 255, 0.9);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      animation: click-ripple 0.8s ease-out forwards;
+      z-index: 5;
+    }
+
+    .click-ripple,
+    .banner-stage::after {
+      display: none;
+    }
+
+    .binary-particle {
+      position: absolute;
+      z-index: 2;
+      pointer-events: none;
+      color: rgba(56, 189, 248, 0.42);
+      font: 10px 'JetBrains Mono', monospace;
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.45);
+      transition: color 0.18s ease;
+    }
+
+    .binary-particle.shocked {
+      color: rgba(0, 240, 255, 0.95);
+      text-shadow: 0 0 12px rgba(0, 240, 255, 0.9);
+    }
+
+    /* Falling Binary Rain Animation */
+    .binary-rain {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .binary-stream {
+      position: absolute;
+      top: 0;
+      color: rgba(56, 189, 248, 0.52);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      line-height: 1.55;
+      letter-spacing: 0.12em;
+      white-space: pre;
+      text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+      animation: binary-stream-fall var(--stream-duration, 10s) linear infinite;
+      animation-delay: var(--stream-delay, 0s);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .binary-stream::first-line {
+      color: #ffffff;
+      text-shadow: 0 0 8px #00f0ff, 0 0 16px rgba(0, 240, 255, 0.95);
+      font-weight: 700;
+    }
+
+    .binary-stream.shock {
+      color: #00f0ff !important;
+      text-shadow: 0 0 8px #00f0ff, 0 0 20px #00f0ff, 0 0 35px rgba(0, 240, 255, 1) !important;
+      filter: brightness(2.2);
+    }
+
+    @keyframes binary-stream-fall {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      3% {
+        opacity: var(--stream-opacity, 0.7);
+      }
+      92% {
+        opacity: var(--stream-opacity, 0.7);
+      }
+      100% {
+        transform: translateY(980px);
+        opacity: 0;
+      }
+    }
+
+    /* Clean Modern Registration Modal Inputs */
+    #registerModal input,
+    #registerModal select {
+      background: rgba(4, 10, 25, 0.85) !important;
+      border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      border-radius: 10px !important;
+      color: #f8fafc !important;
+      box-shadow: none !important;
+    }
+    #registerModal input:focus,
+    #registerModal select:focus {
+      border-color: #00f0ff !important;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3) !important;
+      outline: none !important;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center p-2 sm:p-6 lg:p-8 bg-[#061436]">
+
+  <main id="bannerContainer" class="banner-stage rounded-2xl md:rounded-3xl overflow-hidden flex flex-col justify-between border border-slate-800 relative select-none">
+    
+    <!-- Background Canvas for Circuit Particles & Traces -->
+    <canvas id="circuitCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <!-- Background Subtle Circuit Grids & Glow Orbs -->
+    <div class="absolute inset-0 cyber-grid z-0"></div>
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-cyan-500/15 rounded-full blur-[110px] pointer-events-none"></div>
+    <div class="absolute bottom-0 right-10 w-[450px] h-[250px] bg-blue-600/10 rounded-full blur-[90px] pointer-events-none"></div>
+
+    <!-- Decorative Top Circuit Corner Traces -->
+    <svg class="absolute top-0 left-0 w-36 h-36 text-cyan-500/25 pointer-events-none z-0" viewBox="0 0 100 100" fill="none">
+      <path d="M0 20 H30 L50 40 H70" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3"/>
+      <circle cx="70" cy="40" r="2.5" fill="#00f0ff"/>
+      <path d="M20 0 V30 L40 50 V70" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="40" cy="70" r="2.5" fill="#38bdf8"/>
+    </svg>
+    <svg class="absolute bottom-0 right-0 w-36 h-36 text-cyan-500/25 pointer-events-none z-0 rotate-180" viewBox="0 0 100 100" fill="none">
+      <path d="M0 20 H30 L50 40 H70" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3"/>
+      <circle cx="70" cy="40" r="2.5" fill="#00f0ff"/>
+      <path d="M20 0 V30 L40 50 V70" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="40" cy="70" r="2.5" fill="#38bdf8"/>
+    </svg>
+
+    <nav class="relative z-10 w-full px-6 md:px-12 pt-5 md:pt-7 flex flex-col gap-4">
+      <!-- Institution Branding -->
+      <div class="flex items-center justify-between gap-5">
+        <div class="flex items-center gap-3.5">
+        <img src="ccs logo.png" alt="College of Computer Studies logo" class="w-10 h-10 md:w-12 md:h-12 object-contain">
+        <div>
+          <div class="font-display font-bold text-sm md:text-base tracking-wider text-slate-100 flex items-center gap-2">
+            ST. TIMOTHY UNIVERSITY
+          </div>
+          <p class="text-[11px] md:text-xs text-slate-400 tracking-wide font-sans">College of Computer Studies • Annual Tech Summit</p>
+        </div>
+        </div>
+
+        <div class="glass-capsule hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider">
+          <a href="#home" class="px-3.5 py-1.5 rounded-full text-white font-bold bg-white/20 border border-white/70 shadow-[0_0_12px_rgba(255,255,255,0.45)] transition-all">Home</a>
+          <a href="tech_week_explore.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Explore</a>
+          <a href="tech_week_exhibits.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Exhibits</a>
+          <a href="tech_week_workshops.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Workshops</a>
+          <a href="tech_week_contact.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Contact</a>
+        </div>
+      </div>
+
+      <!-- Live Event Status & Date Indicator -->
+    </nav>
+
+    <section id="home" class="relative z-10 px-6 md:px-14 py-2 md:py-4 flex flex-col items-center text-center max-w-5xl mx-auto my-auto">
+      <div class="glass-capsule mb-3 px-5 py-1.5 rounded-full text-[11px] font-mono tracking-wider text-cyan-300 font-medium text-center">
+        OCTOBER 12-16, 2026
+      </div>
+      
+      <!-- Main Headline: Balanced, Ultra-punchy 2026 Typography -->
+      <h1 class="pixel-title text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.98] mb-3 mt-2">
+        <span class="tech-gradient-text">TECH WEEK</span>
+        <span class="sub-gradient-text ml-1 md:ml-2">2026</span>
+      </h1>
+
+      <!-- High Precision Subheading -->
+      <p class="text-xs sm:text-base md:text-lg text-slate-300 max-w-2xl font-sans font-normal leading-relaxed mb-5 text-slate-300/90">
+        Three days of breakthrough technology exhibits, hands-on masterclasses, fast-paced hackathons, and high-stakes collegiate esports.
+      </p>
+
+      <div id="exhibits" class="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full max-w-md">
+        <!-- Primary CTA with Neon Shimmer Hover (Image 1 Gold Standard) -->
+        <button id="registerBtn" class="btn-neon-primary w-full sm:w-auto px-7 py-3.5 rounded-full font-display font-bold text-white text-sm md:text-base tracking-wide flex items-center justify-center gap-2.5 shadow-glow-cyan cursor-pointer group">
+          <span>Secure Your Pass</span>
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </button>
+
+      </div>
+
+    </section>
+
+    <footer id="workshops" class="relative z-10 w-full px-6 md:px-12 pb-6 md:pb-7 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-cyan-500/10 pt-4 bg-slate-950/40 backdrop-blur-md">
+      
+      <!-- Metrics Grid -->
+      <div class="grid grid-cols-4 gap-4 sm:gap-8 w-full md:w-auto text-left">
+        <div>
+          <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">03</div>
+          <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Days Of Tech</div>
+        </div>
+        <div>
+          <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">16+</div>
+          <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Workshops</div>
+        </div>
+        <div>
+          <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">₱75K</div>
+          <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Prize Pool</div>
+        </div>
+        <div>
+          <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tight">800+</div>
+          <div class="text-[10px] sm:text-xs font-mono text-cyan-400/80 uppercase">Innovators</div>
+        </div>
+      </div>
+
+      <!-- Live Event Countdown Widget (Single Unified Glass Capsule - Image 5 Fix) -->
+      <div class="glass-capsule flex items-center gap-3 rounded-full px-4 py-2">
+        <span class="text-[11px] font-mono text-slate-300 uppercase tracking-wider flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00f0ff]"></span>
+          Launches In:
+        </span>
+        <div class="flex items-center gap-1 font-mono text-xs sm:text-sm font-bold text-cyan-200 bg-black/40 border border-cyan-400/30 rounded-full px-3 py-1 shadow-inner" id="countdownClock">
+          <span id="cd-days" class="text-cyan-300">38</span><span class="text-cyan-500/60">:</span>
+          <span id="cd-hours" class="text-cyan-300">14</span><span class="text-cyan-500/60">:</span>
+          <span id="cd-mins" class="text-cyan-300">22</span><span class="text-cyan-500/60">:</span>
+          <span id="cd-secs" class="text-cyan-300">08</span>
+        </div>
+      </div>
+
+    </footer>
+
+    <div id="registerModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+      <div class="bg-slate-900 border border-cyan-500/30 rounded-2xl p-6 sm:p-8 w-full max-w-md shadow-2xl relative">
+        <button id="closeModalBtn" aria-label="Close registration form" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg cursor-pointer">✕</button>
+        <div class="flex items-center justify-center gap-3 mb-3">
+          <img src="ccs logo.png" alt="College of Computer Studies logo" class="w-11 h-11 object-contain">
+          <div class="text-cyan-400 text-xs font-mono">ST. TIMOTHY CCS PORTAL</div>
+        </div>
+        <h3 class="text-2xl font-bold font-display text-white mb-2">Register for Tech Week 2026</h3>
+        <p class="text-xs text-slate-400 mb-6">Secure your event pass, workshop slots, and tournament entry tickets.</p>
+
+        <form id="regForm" class="space-y-4" onsubmit="event.preventDefault(); window.submitRegistration();">
+          <div>
+            <label for="fullName" class="block text-xs font-mono text-slate-300 mb-1">Full Name</label>
+            <input id="fullName" name="fullName" required type="text" autocomplete="name" placeholder="e.g. Alex Rivera" class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none transition">
+          </div>
+          <div>
+            <label for="institutionalEmail" class="block text-xs font-mono text-slate-300 mb-1">Institutional Email</label>
+            <input id="institutionalEmail" name="institutionalEmail" required type="email" autocomplete="email" placeholder="alex.rivera@sttimothy.edu" class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none transition">
+          </div>
+          <div>
+            <label for="trackInterest" class="block text-xs font-mono text-slate-300 mb-1">Primary Track Interest</label>
+            <select id="trackInterest" name="trackInterest" required class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none transition">
+              <option>AI & Machine Learning Symposium</option>
+              <option>Cybersecurity Capture The Flag (CTF)</option>
+              <option>24-Hour Code Sprint Hackathon</option>
+              <option>Game Development & Design Showcase</option>
+              <option>General Academic Tech Exhibits</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-neon-primary w-full py-3 rounded-xl font-bold text-slate-950 text-sm mt-2 cursor-pointer">
+            Confirm & Claim Digital Badge
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Feedback Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-cyan-950/90 border border-cyan-400/60 text-cyan-200 px-5 py-3 rounded-xl shadow-glow-cyan text-xs font-mono flex items-center gap-2 backdrop-blur-lg">
+      <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      </svg>
+      <span id="toastMessage">Action completed successfully.</span>
+    </div>
+
+  </main>
+
+  <script>
+    /* Initialize Circuit Trace Canvas Background */
+    (function initCircuitBackground() {
+      const canvas = document.getElementById('circuitCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      let width, height;
+      const nodes = [];
+      const nodeCount = 28;
+      const pointer = { x: -1000, y: -1000, active: false };
+
+      function resize() {
+        width = canvas.width = canvas.parentElement.clientWidth;
+        height = canvas.height = canvas.parentElement.clientHeight;
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+
+      class CircuitNode {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.45;
+          this.vy = (Math.random() - 0.5) * 0.45;
+          this.radius = Math.random() * 1.6 + 0.8;
+          this.alpha = Math.random() * 0.5 + 0.2;
+        }
+
+        update() {
+          if (pointer.active) {
+            const dx = this.x - pointer.x;
+            const dy = this.y - pointer.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const radius = 110;
+            if (distance < radius && distance > 0) {
+              const force = (1 - distance / radius) * 0.75;
+              this.vx += (dx / distance) * force;
+              this.vy += (dy / distance) * force;
+            }
+          }
+          this.vx *= 0.985;
+          this.vy *= 0.985;
+          const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+          if (speed > 0.7) {
+            this.vx = (this.vx / speed) * 0.7;
+            this.vy = (this.vy / speed) * 0.7;
+          }
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(0, 240, 255, ${this.alpha})`;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = '#00f0ff';
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < nodeCount; i++) {
+        nodes.push(new CircuitNode());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw connections for circuit-like geometry
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 140) {
+              ctx.beginPath();
+              // Circuit 90-degree bend simulation or straight connection
+              ctx.moveTo(nodes[i].x, nodes[i].y);
+              ctx.lineTo(nodes[j].x, nodes[j].y);
+              ctx.strokeStyle = `rgba(0, 240, 255, ${0.12 * (1 - dist / 140)})`;
+              ctx.lineWidth = 0.85;
+              ctx.stroke();
+            }
+          }
+          nodes[i].update();
+          nodes[i].draw();
+        }
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    })();
+
+    const registerModal = document.getElementById('registerModal');
+    const registerBtn = document.getElementById('registerBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    const bannerContainer = document.getElementById('bannerContainer');
+
+    bannerContainer.addEventListener('pointerdown', (event) => {
+      const ripple = document.createElement('span');
+      const bounds = bannerContainer.getBoundingClientRect();
+      ripple.className = 'click-ripple';
+      ripple.style.left = `${event.clientX - bounds.left}px`;
+      ripple.style.top = `${event.clientY - bounds.top}px`;
+      bannerContainer.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+    });
+
+    bannerContainer.addEventListener('pointermove', (event) => {
+      const bounds = bannerContainer.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width;
+      const y = (event.clientY - bounds.top) / bounds.height;
+      bannerContainer.style.setProperty('--pointer-x', `${x * 100}%`);
+      bannerContainer.style.setProperty('--pointer-y', `${y * 100}%`);
+      pointer.x = event.clientX - bounds.left;
+      pointer.y = event.clientY - bounds.top;
+      pointer.active = true;
+    });
+
+    bannerContainer.addEventListener('pointerleave', () => {
+      pointer.active = false;
+    });
+
+    (function initBinaryRain() {
+      const stage = document.getElementById('bannerContainer') || document.querySelector('main');
+      if (!stage) return;
+      document.querySelectorAll('.binary-rain, .random-binary-rain').forEach(el => el.remove());
+      const rain = document.createElement('div');
+      rain.className = 'binary-rain';
+      stage.appendChild(rain);
+
+      const streams = [];
+      const makeCode = () => Array.from({ length: 14 + Math.floor(Math.random() * 10) }, () => {
+        const len = 3 + Math.floor(Math.random() * 5);
+        return Array.from({ length: len }, () => Math.random() > 0.5 ? '1' : '0').join('');
+      }).join('\n');
+
+      const streamCount = 22;
+      for (let i = 0; i < streamCount; i++) {
+        const stream = document.createElement('pre');
+        stream.className = 'binary-stream';
+        stream.textContent = makeCode();
+        const leftPercent = 2 + (i * (94 / streamCount)) + (Math.random() * 1.5 - 0.75);
+        stream.style.left = `${leftPercent}%`;
+        const dur = 8 + Math.random() * 6;
+        const delay = -Math.random() * 12;
+        const opacity = 0.38 + Math.random() * 0.42;
+        stream.style.setProperty('--stream-duration', `${dur}s`);
+        stream.style.setProperty('--stream-delay', `${delay}s`);
+        stream.style.setProperty('--stream-opacity', opacity.toString());
+        rain.appendChild(stream);
+        streams.push(stream);
+      }
+
+      stage.addEventListener('pointermove', (event) => {
+        streams.forEach((stream) => {
+          const bounds = stream.getBoundingClientRect();
+          const hit = event.clientX > bounds.left - 24 && event.clientX < bounds.right + 24 &&
+                      event.clientY > bounds.top && event.clientY < bounds.bottom;
+          stream.classList.toggle('shock', hit);
+        });
+      });
+      stage.addEventListener('pointerleave', () => {
+        streams.forEach(stream => stream.classList.remove('shock'));
+      });
+      setInterval(() => {
+        streams.forEach(stream => {
+          if (!stream.classList.contains('shock') && Math.random() > 0.55) {
+            stream.textContent = makeCode();
+          }
+        });
+      }, 2200);
+    })();
+
+    function showToast(msg) {
+      toastMessage.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    registerBtn.addEventListener('click', () => {
+      registerModal.classList.remove('opacity-0', 'pointer-events-none');
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      registerModal.classList.add('opacity-0', 'pointer-events-none');
+    });
+
+    registerModal.addEventListener('click', (e) => {
+      if (e.target === registerModal) {
+        registerModal.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+
+    window.submitRegistration = function() {
+      registerModal.classList.add('opacity-0', 'pointer-events-none');
+      showToast('Registration confirmed! Check your email for your Tech Week 2026 badge.');
+    };
+
+    (function initCountdown() {
+      // Event target: October 12, 2026
+      const targetDate = new Date('2026-10-12T08:00:00').getTime();
+
+      function updateTimer() {
+        const now = new Date().getTime();
+        let diff = targetDate - now;
+
+        if (diff < 0) {
+          diff = 1000 * 60 * 60 * 24 * 38; // Default mock fallback
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const pad = (n) => String(n).padStart(2, '0');
+
+        const elDays = document.getElementById('cd-days');
+        const elHours = document.getElementById('cd-hours');
+        const elMins = document.getElementById('cd-mins');
+        const elSecs = document.getElementById('cd-secs');
+
+        if (elDays) elDays.textContent = pad(days);
+        if (elHours) elHours.textContent = pad(hours);
+        if (elMins) elMins.textContent = pad(mins);
+        if (elSecs) elSecs.textContent = pad(secs);
+      }
+
+      setInterval(updateTimer, 1000);
+      updateTimer();
+    })();
+  </script>
+</body>
+</html>

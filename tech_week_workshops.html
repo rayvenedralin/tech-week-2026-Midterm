@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshops | Tech Week 2026</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: #061436;
+      color: #E2E8F0;
+      overflow-x: hidden;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .pixel-title {
+      font-family: 'Press Start 2P', monospace !important;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.35em;
+      white-space: nowrap;
+      font-size: clamp(1.15rem, 4.3vw, 4.1rem) !important;
+      line-height: 1.15 !important;
+      letter-spacing: 0 !important;
+    }
+
+    .banner-stage {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      max-width: 1600px;
+      max-height: 900px;
+      position: relative;
+      background: radial-gradient(120% 100% at 50% 0%, #123b70 0%, #091d4a 55%, #050d26 100%);
+      box-shadow: 0 25px 80px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(56, 189, 248, 0.15);
+    }
+
+    .cyber-grid {
+      background-size: 48px 48px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+      mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
+    }
+
+    .tech-gradient-text {
+      background: linear-gradient(180deg, #FFFFFF 20%, #A5F3FC 75%, #38BDF8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub-gradient-text {
+      background: linear-gradient(90deg, #00F0FF, #38BDF8, #818CF8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Falling Binary Rain Animation */
+    .binary-rain {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .binary-stream {
+      position: absolute;
+      top: 0;
+      color: rgba(56, 189, 248, 0.52);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      line-height: 1.55;
+      letter-spacing: 0.12em;
+      white-space: pre;
+      text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+      animation: binary-stream-fall var(--stream-duration, 10s) linear infinite;
+      animation-delay: var(--stream-delay, 0s);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .binary-stream::first-line {
+      color: #ffffff;
+      text-shadow: 0 0 8px #00f0ff, 0 0 16px rgba(0, 240, 255, 0.95);
+      font-weight: 700;
+    }
+
+    .binary-stream.shock,
+    .binary-stream.lit {
+      color: #00f0ff !important;
+      text-shadow: 0 0 8px #00f0ff, 0 0 20px #00f0ff, 0 0 35px rgba(0, 240, 255, 1) !important;
+      filter: brightness(2.2);
+    }
+
+    @keyframes binary-stream-fall {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      3% {
+        opacity: var(--stream-opacity, 0.7);
+      }
+      92% {
+        opacity: var(--stream-opacity, 0.7);
+      }
+      100% {
+        transform: translateY(980px);
+        opacity: 0;
+      }
+    }
+
+    /* Navigation Bar: Exact Image 2 Royal Blue Capsule with Gloss Sheen */
+    .glass-capsule {
+      position: relative;
+      background: linear-gradient(180deg, #1e70eb 0%, #0d52c7 100%) !important;
+      border: 1.5px solid rgba(160, 235, 255, 0.9) !important;
+      border-radius: 9999px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.65), 0 0 22px rgba(0, 160, 255, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+
+    .glass-capsule::after {
+      content: '';
+      position: absolute;
+      top: -28%;
+      right: -8%;
+      width: 55%;
+      height: 95%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 72%);
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Workshop Row: Image 5 Gold Standard Capsule */
+    .workshop-row {
+      position: relative;
+      background: linear-gradient(180deg, #1e70eb 0%, #0d52c7 100%) !important;
+      border: 1.5px solid rgba(160, 235, 255, 0.9) !important;
+      border-radius: 9999px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 0 20px rgba(0, 160, 255, 0.45);
+      color: #ffffff !important;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .workshop-row::after {
+      content: '';
+      position: absolute;
+      top: -28%;
+      right: -8%;
+      width: 55%;
+      height: 95%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 72%);
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .workshop-row:hover {
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 0 32px rgba(0, 190, 255, 0.7);
+      border-color: #ffffff !important;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-2 sm:p-6 lg:p-8 bg-[#061436]">
+  <main id="bannerContainer" class="banner-stage rounded-2xl md:rounded-3xl overflow-hidden flex flex-col justify-between border border-slate-800 relative select-none">
+    <canvas id="c" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+    <div class="absolute inset-0 cyber-grid z-0"></div>
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-cyan-500/15 rounded-full blur-[110px] pointer-events-none"></div>
+
+    <!-- Navigation Header -->
+    <nav class="relative z-10 w-full px-6 md:px-12 pt-5 md:pt-7 flex items-center justify-between gap-5">
+      <a href="index.html" class="flex items-center gap-3.5">
+        <img src="ccs logo.png" alt="CCS logo" class="w-10 h-10 md:w-12 md:h-12 object-contain">
+        <span>
+          <strong class="block font-display font-bold text-sm md:text-base tracking-wider text-slate-100">ST. TIMOTHY UNIVERSITY</strong>
+          <small class="text-[11px] md:text-xs text-slate-400 tracking-wide font-sans">College of Computer Studies • Annual Tech Summit</small>
+        </span>
+      </a>
+
+      <!-- Unified Glass Capsule Navigation Bar (Active: Workshops) -->
+      <div class="glass-capsule hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider">
+        <a href="index.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Home</a>
+        <a href="tech_week_explore.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Explore</a>
+        <a href="tech_week_exhibits.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Exhibits</a>
+        <a href="tech_week_workshops.html" class="px-3.5 py-1.5 rounded-full text-white font-bold bg-white/20 border border-white/70 shadow-[0_0_12px_rgba(255,255,255,0.45)] transition-all">Workshops</a>
+        <a href="tech_week_contact.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <section class="relative z-10 px-6 md:px-14 py-4 flex flex-col items-center text-center max-w-5xl mx-auto my-auto">
+
+      <!-- Summit Date Badge -->
+      <div class="glass-capsule mb-4 px-5 py-1.5 rounded-full text-[11px] font-mono tracking-wider text-cyan-300 font-medium text-center">
+        OCTOBER 12-16, 2026
+      </div>
+
+      <h1 class="pixel-title text-4xl sm:text-6xl md:text-7xl font-black leading-none mb-4">
+        <span class="tech-gradient-text">WORKSHOP</span>
+        <span class="sub-gradient-text ml-2">MODE</span>
+      </h1>
+
+      <p class="text-xs sm:text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed mb-7 font-sans">
+        Short, focused sessions led by faculty, alumni, and student builders. Bring your laptop and leave with a new skill.
+      </p>
+
+      <!-- Workshop List: Image 5 Capsule Pills -->
+      <div class="w-full max-w-2xl text-left flex flex-col gap-3 font-mono text-xs">
+        <!-- Session 1 -->
+        <div class="workshop-row flex items-center justify-between px-5 py-3">
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 text-center rounded-full bg-cyan-300/25 border border-cyan-200/50 text-cyan-100 font-bold text-[11px] whitespace-nowrap">9:00AM - 12:00PM</span>
+            <span class="text-white font-bold text-xs sm:text-sm">Prompt Engineering Studio</span>
+          </div>
+          <span class="text-[10px] text-cyan-100 px-2.5 py-0.5 rounded-full bg-black/30 border border-cyan-300/30 font-mono">LAB 204</span>
+        </div>
+
+        <!-- Session 2 -->
+        <div class="workshop-row flex items-center justify-between px-5 py-3">
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 text-center rounded-full bg-cyan-300/25 border border-cyan-200/50 text-cyan-100 font-bold text-[11px] whitespace-nowrap">1:30PM - 4:30PM</span>
+            <span class="text-white font-bold text-xs sm:text-sm">Secure Web Foundations</span>
+          </div>
+          <span class="text-[10px] text-cyan-100 px-2.5 py-0.5 rounded-full bg-black/30 border border-cyan-300/30 font-mono">CYBER HUB</span>
+        </div>
+
+        <!-- Session 3 -->
+        <div class="workshop-row flex items-center justify-between px-5 py-3">
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 text-center rounded-full bg-cyan-300/25 border border-cyan-200/50 text-cyan-100 font-bold text-[11px] whitespace-nowrap">5:00PM - 6:00PM</span>
+            <span class="text-white font-bold text-xs sm:text-sm">From Idea to Demo</span>
+          </div>
+          <span class="text-[10px] text-cyan-100 px-2.5 py-0.5 rounded-full bg-black/30 border border-cyan-300/30 font-mono">AUDITORIUM</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 w-full px-6 md:px-12 pb-6 pt-4 border-t border-cyan-500/10 bg-slate-950/40 text-center text-[10px] font-mono text-slate-500 flex items-center justify-between">
+      <span>St. Timothy University • College of Computer Studies</span>
+      <a href="index.html" class="text-cyan-300 hover:text-white transition-colors">&larr; Back to Tech Week Home</a>
+    </footer>
+  </main>
+
+  <script>
+    const stage = document.querySelector('main');
+    if (stage) {
+      stage.addEventListener('pointermove', e => {
+        const b = stage.getBoundingClientRect();
+        stage.style.setProperty('--pointer-x', `${((e.clientX - b.left) / b.width) * 100}%`);
+        stage.style.setProperty('--pointer-y', `${((e.clientY - b.top) / b.height) * 100}%`);
+      });
+    }
+
+    const c = document.getElementById('c');
+    if (c) {
+      const x = c.getContext('2d');
+      const n = [];
+      function s() {
+        c.width = c.parentElement.clientWidth;
+        c.height = c.parentElement.clientHeight;
+      }
+      addEventListener('resize', s);
+      s();
+      for (let i = 0; i < 28; i++) {
+        n.push({
+          x: Math.random() * c.width,
+          y: Math.random() * c.height,
+          vx: (Math.random() - .5) * .45,
+          vy: (Math.random() - .5) * .45,
+          r: Math.random() * 1.6 + .8
+        });
+      }
+      (function d() {
+        x.clearRect(0, 0, c.width, c.height);
+        n.forEach((a, i) => {
+          n.slice(i + 1).forEach(b => {
+            let q = Math.hypot(a.x - b.x, a.y - b.y);
+            if (q < 140) {
+              x.beginPath();
+              x.moveTo(a.x, a.y);
+              x.lineTo(b.x, b.y);
+              x.strokeStyle = `rgba(0,240,255,${.12 * (1 - q / 140)})`;
+              x.stroke();
+            }
+          });
+          a.x += a.vx;
+          a.y += a.vy;
+          if (a.x < 0 || a.x > c.width) a.vx *= -1;
+          if (a.y < 0 || a.y > c.height) a.vy *= -1;
+          x.beginPath();
+          x.arc(a.x, a.y, a.r, 0, 7);
+          x.fillStyle = 'rgba(0,240,255,.55)';
+          x.fill();
+        });
+        requestAnimationFrame(d);
+      })();
+    }
+
+    // Falling Animated Binary Rain
+    (function initBinaryRain() {
+      const banner = document.getElementById('bannerContainer') || document.querySelector('main');
+      if (!banner) return;
+      document.querySelectorAll('.binary-rain').forEach(el => el.remove());
+      const rain = document.createElement('div');
+      rain.className = 'binary-rain';
+      banner.appendChild(rain);
+      const streams = [];
+      const createCode = () => Array.from({ length: 14 + Math.floor(Math.random() * 10) }, () => {
+        const width = 4 + Math.floor(Math.random() * 5);
+        return Array.from({ length: width }, () => (Math.random() > 0.5 ? '1' : '0')).join('');
+      }).join('\n');
+
+      const streamCount = 22;
+      for (let i = 0; i < streamCount; i++) {
+        const stream = document.createElement('pre');
+        stream.className = 'binary-stream';
+        stream.textContent = createCode();
+        const leftPercent = 2 + (i * (94 / streamCount)) + (Math.random() * 1.5 - 0.75);
+        stream.style.left = `${leftPercent}%`;
+        const dur = 8 + Math.random() * 6;
+        const delay = -Math.random() * 12;
+        const opacity = 0.38 + Math.random() * 0.42;
+        stream.style.setProperty('--stream-duration', `${dur}s`);
+        stream.style.setProperty('--stream-delay', `${delay}s`);
+        stream.style.setProperty('--stream-opacity', opacity.toString());
+        rain.appendChild(stream);
+        streams.push(stream);
+      }
+
+      banner.addEventListener('pointermove', event => {
+        streams.forEach(stream => {
+          const bounds = stream.getBoundingClientRect();
+          const hit = event.clientX >= bounds.left - 24 && event.clientX <= bounds.right + 24 && event.clientY >= bounds.top && event.clientY <= bounds.bottom;
+          stream.classList.toggle('lit', hit);
+        });
+      });
+      banner.addEventListener('pointerleave', () => streams.forEach(s => s.classList.remove('lit')));
+      setInterval(() => {
+        streams.forEach(stream => {
+          if (!stream.classList.contains('lit') && Math.random() > 0.55) {
+            stream.textContent = createCode();
+          }
+        });
+      }, 2200);
+    })();
+  </script>
+</body>
+</html>

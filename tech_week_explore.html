@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore | Tech Week 2026</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: #061436;
+      color: #E2E8F0;
+      overflow-x: hidden;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .pixel-title {
+      font-family: 'Press Start 2P', monospace !important;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.35em;
+      white-space: nowrap;
+      font-size: clamp(1.15rem, 4.3vw, 4.1rem) !important;
+      line-height: 1.15 !important;
+      letter-spacing: 0 !important;
+    }
+
+    .banner-stage {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      max-width: 1600px;
+      max-height: 900px;
+      position: relative;
+      background: radial-gradient(120% 100% at 50% 0%, #123b70 0%, #091d4a 55%, #050d26 100%);
+      box-shadow: 0 25px 80px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(56, 189, 248, 0.15);
+    }
+
+    .cyber-grid {
+      background-size: 48px 48px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+      mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
+    }
+
+    .tech-gradient-text {
+      background: linear-gradient(180deg, #FFFFFF 20%, #A5F3FC 75%, #38BDF8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub-gradient-text {
+      background: linear-gradient(90deg, #00F0FF, #38BDF8, #818CF8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Falling Binary Rain Animation */
+    .binary-rain {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .binary-stream {
+      position: absolute;
+      top: 0;
+      color: rgba(56, 189, 248, 0.52);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      line-height: 1.55;
+      letter-spacing: 0.12em;
+      white-space: pre;
+      text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+      animation: binary-stream-fall var(--stream-duration, 10s) linear infinite;
+      animation-delay: var(--stream-delay, 0s);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .binary-stream::first-line {
+      color: #ffffff;
+      text-shadow: 0 0 8px #00f0ff, 0 0 16px rgba(0, 240, 255, 0.95);
+      font-weight: 700;
+    }
+
+    .binary-stream.shock,
+    .binary-stream.lit {
+      color: #00f0ff !important;
+      text-shadow: 0 0 8px #00f0ff, 0 0 20px #00f0ff, 0 0 35px rgba(0, 240, 255, 1) !important;
+      filter: brightness(2.2);
+    }
+
+    @keyframes binary-stream-fall {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      3% {
+        opacity: var(--stream-opacity, 0.7);
+      }
+      92% {
+        opacity: var(--stream-opacity, 0.7);
+      }
+      100% {
+        transform: translateY(980px);
+        opacity: 0;
+      }
+    }
+
+    /* Navigation Bar: Exact Image 2 Royal Blue Capsule with Gloss Sheen */
+    .glass-capsule {
+      position: relative;
+      background: linear-gradient(180deg, #1e70eb 0%, #0d52c7 100%) !important;
+      border: 1.5px solid rgba(160, 235, 255, 0.9) !important;
+      border-radius: 9999px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.65), 0 0 22px rgba(0, 160, 255, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+
+    .glass-capsule::after {
+      content: '';
+      position: absolute;
+      top: -28%;
+      right: -8%;
+      width: 55%;
+      height: 95%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 72%);
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Image 5 Gold Standard: Vibrant Royal Blue Capsule Button & Bullet Point */
+    .track-card {
+      position: relative;
+      background: linear-gradient(180deg, #1e70eb 0%, #0d52c7 100%) !important;
+      border: 1.5px solid rgba(160, 235, 255, 0.9) !important;
+      border-radius: 9999px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 0 20px rgba(0, 160, 255, 0.45);
+      color: #ffffff !important;
+      overflow: hidden;
+      min-height: 48px;
+      max-height: 48px;
+      text-align: left;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.25s ease,
+                  box-shadow 0.25s ease,
+                  transform 0.25s ease;
+      cursor: pointer;
+    }
+
+    /* Iconic Image 5 Top-Right Gloss Reflection Arc */
+    .track-card::after {
+      content: '';
+      position: absolute;
+      top: -28%;
+      right: -8%;
+      width: 55%;
+      height: 95%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 72%);
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .track-card:focus {
+      outline: none;
+    }
+
+    .track-card:hover,
+    .track-card.expanded {
+      max-height: 140px;
+      border-radius: 20px;
+      border-color: #ffffff !important;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 0 32px rgba(0, 190, 255, 0.7);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .track-card .track-detail {
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.25s ease 0.05s, transform 0.25s ease 0.05s;
+    }
+
+    .track-card:hover .track-detail,
+    .track-card.expanded .track-detail {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .track-card .chevron-icon {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .track-card:hover .chevron-icon,
+    .track-card.expanded .chevron-icon {
+      transform: rotate(180deg);
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-2 sm:p-6 lg:p-8 bg-[#061436]">
+  <main id="bannerContainer" class="banner-stage rounded-2xl md:rounded-3xl overflow-hidden flex flex-col justify-between border border-slate-800 relative select-none">
+    <canvas id="circuitCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+    <div class="absolute inset-0 cyber-grid z-0"></div>
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-cyan-500/15 rounded-full blur-[110px] pointer-events-none"></div>
+
+    <!-- Navigation Header -->
+    <nav class="relative z-10 w-full px-6 md:px-12 pt-5 md:pt-7 flex items-center justify-between gap-5">
+      <a href="index.html" class="flex items-center gap-3.5">
+        <img src="ccs logo.png" alt="CCS logo" class="w-10 h-10 md:w-12 md:h-12 object-contain">
+        <span>
+          <strong class="block font-display font-bold text-sm md:text-base tracking-wider text-slate-100">ST. TIMOTHY UNIVERSITY</strong>
+          <small class="text-[11px] md:text-xs text-slate-400 tracking-wide font-sans">College of Computer Studies • Annual Tech Summit</small>
+        </span>
+      </a>
+
+      <!-- Unified Glass Capsule Navigation Bar (Active: Explore) -->
+      <div class="glass-capsule hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider">
+        <a href="index.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Home</a>
+        <a href="tech_week_explore.html" class="px-3.5 py-1.5 rounded-full text-white font-bold bg-white/20 border border-white/70 shadow-[0_0_12px_rgba(255,255,255,0.45)] transition-all">Explore</a>
+        <a href="tech_week_exhibits.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Exhibits</a>
+        <a href="tech_week_workshops.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Workshops</a>
+        <a href="tech_week_contact.html" class="px-3.5 py-1.5 rounded-full text-blue-100 font-medium hover:text-white hover:bg-white/15 transition-all">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <section class="relative z-10 px-6 md:px-14 py-4 flex flex-col items-center text-center max-w-5xl mx-auto my-auto">
+      <!-- Summit Date Badge -->
+      <div class="glass-capsule mb-4 px-5 py-1.5 rounded-full text-[11px] font-mono tracking-wider text-cyan-300 font-medium text-center">
+        OCTOBER 12-16, 2026
+      </div>
+
+      <h1 class="pixel-title text-4xl sm:text-6xl md:text-7xl font-black leading-none mb-4">
+        <span class="tech-gradient-text">EXPLORE</span>
+        <span class="sub-gradient-text ml-2">TECH WEEK</span>
+      </h1>
+
+      <p class="text-xs sm:text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed mb-7 font-sans">
+        Find the challenge that fits your curiosity, build with other student innovators, and leave with something real.
+      </p>
+
+      <!-- Track Cards: Image 5 Style (Vibrant Blue, Top-Right Gloss, Single-line Pill) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full max-w-2xl text-left items-start">
+        <!-- Track 01 -->
+        <div class="track-card px-4 py-3 group" tabindex="0" role="button" aria-expanded="false" aria-label="AI and Neural Systems details">
+          <div class="flex items-center justify-between w-full h-[24px]">
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-cyan-300/25 border border-cyan-200/50 flex items-center justify-center font-mono text-[11px] font-bold text-cyan-100">01</span>
+              <span class="font-display font-bold text-white text-xs sm:text-sm tracking-wide">AI & Neural Systems</span>
+            </div>
+            <svg class="chevron-icon w-4 h-4 text-cyan-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <p class="track-detail mt-2 pl-8 pr-2 text-[11px] font-sans leading-relaxed text-blue-50/90">
+            Prototype campus copilots, test responsible machine learning ideas, and present a working model at Demo Day.
+          </p>
+        </div>
+
+        <!-- Track 02 -->
+        <div class="track-card px-4 py-3 group" tabindex="0" role="button" aria-expanded="false" aria-label="Cybersecurity Capture Lab details">
+          <div class="flex items-center justify-between w-full h-[24px]">
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-cyan-300/25 border border-cyan-200/50 flex items-center justify-center font-mono text-[11px] font-bold text-cyan-100">02</span>
+              <span class="font-display font-bold text-white text-xs sm:text-sm tracking-wide">Cybersecurity Capture Lab</span>
+            </div>
+            <svg class="chevron-icon w-4 h-4 text-cyan-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <p class="track-detail mt-2 pl-8 pr-2 text-[11px] font-sans leading-relaxed text-blue-50/90">
+            Solve web security, forensics, and incident-response challenges in a timed student CTF.
+          </p>
+        </div>
+
+        <!-- Track 03 -->
+        <div class="track-card px-4 py-3 group" tabindex="0" role="button" aria-expanded="false" aria-label="Code Sprint Hackathon details">
+          <div class="flex items-center justify-between w-full h-[24px]">
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-cyan-300/25 border border-cyan-200/50 flex items-center justify-center font-mono text-[11px] font-bold text-cyan-100">03</span>
+              <span class="font-display font-bold text-white text-xs sm:text-sm tracking-wide">Code Sprint Hackathon</span>
+            </div>
+            <svg class="chevron-icon w-4 h-4 text-cyan-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <p class="track-detail mt-2 pl-8 pr-2 text-[11px] font-sans leading-relaxed text-blue-50/90">
+            Build a useful prototype in 24 hours with mentors, teammates, and a final product pitch.
+          </p>
+        </div>
+
+        <!-- Track 04 -->
+        <div class="track-card px-4 py-3 group" tabindex="0" role="button" aria-expanded="false" aria-label="Game Dev Arena details">
+          <div class="flex items-center justify-between w-full h-[24px]">
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-cyan-300/25 border border-cyan-200/50 flex items-center justify-center font-mono text-[11px] font-bold text-cyan-100">04</span>
+              <span class="font-display font-bold text-white text-xs sm:text-sm tracking-wide">Game Dev Arena</span>
+            </div>
+            <svg class="chevron-icon w-4 h-4 text-cyan-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <p class="track-detail mt-2 pl-8 pr-2 text-[11px] font-sans leading-relaxed text-blue-50/90">
+            Create a playable experience from a surprise prompt, then compete for the audience choice award.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 w-full px-6 md:px-12 pb-6 pt-4 border-t border-cyan-500/10 bg-slate-950/40 text-center text-[10px] font-mono text-slate-500 flex items-center justify-between">
+      <span>St. Timothy University • College of Computer Studies</span>
+      <a href="index.html" class="text-cyan-300 hover:text-white transition-colors">&larr; Back to Tech Week Home</a>
+    </footer>
+  </main>
+
+  <script>
+    // Stage pointer glow
+    const stage = document.querySelector('main');
+    if (stage) {
+      stage.addEventListener('pointermove', e => {
+        const b = stage.getBoundingClientRect();
+        stage.style.setProperty('--pointer-x', `${((e.clientX - b.left) / b.width) * 100}%`);
+        stage.style.setProperty('--pointer-y', `${((e.clientY - b.top) / b.height) * 100}%`);
+      });
+    }
+
+    // Flawless accordion & interactive card toggle: no stuck states
+    const trackCards = document.querySelectorAll('.track-card');
+    
+    function collapseAllCards() {
+      trackCards.forEach(c => {
+        c.classList.remove('expanded');
+        c.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    trackCards.forEach(card => {
+      // Click or tap to toggle
+      card.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const willExpand = !card.classList.contains('expanded');
+        collapseAllCards();
+        if (willExpand) {
+          card.classList.add('expanded');
+          card.setAttribute('aria-expanded', 'true');
+        } else {
+          card.blur();
+        }
+      });
+
+      // Mouse leaves the card -> instantly reset and collapse so it never stays stuck
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('expanded');
+        card.setAttribute('aria-expanded', 'false');
+        card.blur();
+      });
+
+      // Keyboard accessibility
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+
+      card.addEventListener('blur', () => {
+        card.classList.remove('expanded');
+        card.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Clicking anywhere outside collapses all cards
+    document.addEventListener('click', () => {
+      collapseAllCards();
+    });
+
+    // Circuit Background Simulation
+    const canvas = document.getElementById('circuitCanvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      const nodes = [];
+      function resize() {
+        width = canvas.width = canvas.parentElement.clientWidth;
+        height = canvas.height = canvas.parentElement.clientHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < 28; i++) {
+        nodes.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.45,
+          r: Math.random() * 1.6 + 0.8
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 140) {
+              ctx.beginPath();
+              ctx.moveTo(nodes[i].x, nodes[i].y);
+              ctx.lineTo(nodes[j].x, nodes[j].y);
+              ctx.strokeStyle = `rgba(0, 240, 255, ${0.12 * (1 - dist / 140)})`;
+              ctx.stroke();
+            }
+          }
+          nodes[i].x += nodes[i].vx;
+          nodes[i].y += nodes[i].vy;
+          if (nodes[i].x < 0 || nodes[i].x > width) nodes[i].vx *= -1;
+          if (nodes[i].y < 0 || nodes[i].y > height) nodes[i].vy *= -1;
+          ctx.beginPath();
+          ctx.arc(nodes[i].x, nodes[i].y, nodes[i].r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 240, 255, 0.55)';
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+
+    // Falling Animated Binary Rain
+    (function initBinaryRain() {
+      const banner = document.getElementById('bannerContainer') || document.querySelector('main');
+      if (!banner) return;
+      document.querySelectorAll('.binary-rain').forEach(el => el.remove());
+      const rain = document.createElement('div');
+      rain.className = 'binary-rain';
+      banner.appendChild(rain);
+      const streams = [];
+      const createCode = () => Array.from({ length: 14 + Math.floor(Math.random() * 10) }, () => {
+        const width = 4 + Math.floor(Math.random() * 5);
+        return Array.from({ length: width }, () => (Math.random() > 0.5 ? '1' : '0')).join('');
+      }).join('\n');
+
+      const streamCount = 22;
+      for (let i = 0; i < streamCount; i++) {
+        const stream = document.createElement('pre');
+        stream.className = 'binary-stream';
+        stream.textContent = createCode();
+        const leftPercent = 2 + (i * (94 / streamCount)) + (Math.random() * 1.5 - 0.75);
+        stream.style.left = `${leftPercent}%`;
+        const dur = 8 + Math.random() * 6;
+        const delay = -Math.random() * 12;
+        const opacity = 0.38 + Math.random() * 0.42;
+        stream.style.setProperty('--stream-duration', `${dur}s`);
+        stream.style.setProperty('--stream-delay', `${delay}s`);
+        stream.style.setProperty('--stream-opacity', opacity.toString());
+        rain.appendChild(stream);
+        streams.push(stream);
+      }
+
+      banner.addEventListener('pointermove', event => {
+        streams.forEach(stream => {
+          const bounds = stream.getBoundingClientRect();
+          const hit = event.clientX >= bounds.left - 24 && event.clientX <= bounds.right + 24 && event.clientY >= bounds.top && event.clientY <= bounds.bottom;
+          stream.classList.toggle('lit', hit);
+        });
+      });
+      banner.addEventListener('pointerleave', () => streams.forEach(s => s.classList.remove('lit')));
+      setInterval(() => {
+        streams.forEach(stream => {
+          if (!stream.classList.contains('lit') && Math.random() > 0.55) {
+            stream.textContent = createCode();
+          }
+        });
+      }, 2200);
+    })();
+  </script>
+</body>
+</html>
